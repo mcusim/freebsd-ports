@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	u-boot-honeycomb
-PORTVERSION=	2021.04
+PORTVERSION=	20.12
 CATEGORIES=	sysutils
-UBOOT_COMMIT=	b46dd116ce03e235f2a7d4843c6278e1da44b5e1
+UBOOT_COMMIT=	f46a944f715f284aff1d42c009680ffe0be4058f
 MASTER_SITES=	https://source.codeaurora.org/external/qoriq/qoriq-components/u-boot/snapshot/
 DISTNAME=	${UBOOT_COMMIT}
 
