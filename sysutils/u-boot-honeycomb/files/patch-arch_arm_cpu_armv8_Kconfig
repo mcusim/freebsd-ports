@@ -1,0 +1,10 @@
+--- arch/arm/cpu/armv8/Kconfig.orig	2021-05-12 16:45:42 UTC
++++ arch/arm/cpu/armv8/Kconfig
+@@ -110,6 +110,7 @@ config PSCI_RESET
+ 		   !TARGET_LS1046AFRWY && \
+ 		   !TARGET_LS2081ARDB && !TARGET_LX2160ARDB && \
+ 		   !TARGET_LX2160AQDS && !TARGET_LX2162AQDS && \
++		   !TARGET_LX2160ACEX7 && \
+ 		   !ARCH_UNIPHIER && !TARGET_S32V234EVB
+ 	help
+ 	  Most armv8 systems have PSCI support enabled in EL3, either through

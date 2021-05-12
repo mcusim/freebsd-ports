@@ -1,0 +1,11 @@
+--- board/solidrun/lx2160a/MAINTAINERS.orig	2021-05-12 16:58:07 UTC
++++ board/solidrun/lx2160a/MAINTAINERS
+@@ -0,0 +1,8 @@
++LX2160ACEX7 BOARD
++M:	Rabeeh Khoury <rabeeh@solid-run.com>
++S:	Maintained
++F:	board/solidrun/lx2160a/
++F:	include/configs/lx2160a_common.h
++F:	include/configs/lx2160acex7.h
++F:	configs/lx2160acex7_tfa_defconfig
++F:	arch/arm/dts/fsl-lx2160a-cex7.dts
