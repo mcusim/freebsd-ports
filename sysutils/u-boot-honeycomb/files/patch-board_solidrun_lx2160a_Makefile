@@ -1,0 +1,12 @@
+--- board/solidrun/lx2160a/Makefile.orig	2021-05-12 16:58:15 UTC
++++ board/solidrun/lx2160a/Makefile
+@@ -0,0 +1,9 @@
++#
++# Copyright 2019 SolidRun ltd.
++#
++# SPDX-License-Identifier:	GPL-2.0+
++#
++
++obj-y += lx2160a.o
++obj-y += ddr.o
++obj-$(CONFIG_TARGET_LX2160ACEX7) += eth_lx2160acex7.o

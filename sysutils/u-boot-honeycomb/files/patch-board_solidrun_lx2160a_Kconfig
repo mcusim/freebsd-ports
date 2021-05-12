@@ -1,0 +1,25 @@
+--- board/solidrun/lx2160a/Kconfig.orig	2021-05-12 16:57:56 UTC
++++ board/solidrun/lx2160a/Kconfig
+@@ -0,0 +1,22 @@
++if TARGET_LX2160ACEX7
++
++config SYS_BOARD
++	default "lx2160a"
++
++config SYS_VENDOR
++	default "solidrun"
++
++config SYS_SOC
++	default "fsl-layerscape"
++
++config SYS_CONFIG_NAME
++	default "lx2160acex7"
++
++config EMC2301
++	bool "Fan controller"
++	help
++	 Enable the EMC2301 fan controller for configuration of fan
++	 speed.
++
++source "board/freescale/common/Kconfig"
++endif

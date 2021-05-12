@@ -9,8 +9,7 @@ MASTER_SITES=	https://source.codeaurora.org/external/qoriq/qoriq-components/u-bo
 DISTNAME=	${UBOOT_COMMIT}
 
 MODEL=		honeycomb-lx2
-#BOARD_CONFIG=	lx2160acex7_tfa_defconfig
-BOARD_CONFIG=	rpi_4_defconfig # NOTE: Needed to build port before patches.
+BOARD_CONFIG=	lx2160acex7_tfa_defconfig
 FAMILY=		aarch64
 
 MAINTAINER=	dsl@mcusim.org
