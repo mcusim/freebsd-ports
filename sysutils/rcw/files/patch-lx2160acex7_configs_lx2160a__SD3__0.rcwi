@@ -1,0 +1,4 @@
+--- lx2160acex7/configs/lx2160a_SD3_0.rcwi.orig	2021-05-15 12:47:40 UTC
++++ lx2160acex7/configs/lx2160a_SD3_0.rcwi
+@@ -0,0 +1 @@
++SRDS_PRTCL_S3=0

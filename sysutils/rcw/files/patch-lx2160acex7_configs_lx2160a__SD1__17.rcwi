@@ -1,0 +1,6 @@
+--- lx2160acex7/configs/lx2160a_SD1_17.rcwi.orig	2021-05-15 12:46:44 UTC
++++ lx2160acex7/configs/lx2160a_SD1_17.rcwi
+@@ -0,0 +1,3 @@
++SRDS_PRTCL_S1=17
++#include <configs/lx2160a_cex7_hc_sd1_lanes_e_f.rcwi>
++#include <configs/lx2160a_cex7_hc_sd1_lanes_g_h.rcwi>
