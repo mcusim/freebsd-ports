@@ -1,5 +1,4 @@
 # Created by: Dmitry Salychev <dsl@mcusim.org>
-# $FreeBSD$
 
 PORTNAME=	qoriq-rcw
 PORTVERSION=	20.12
@@ -16,7 +15,7 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS+=	${COMPILER}:devel/${COMPILER}
 
 USES=		gmake python:3.7+,build shebangfix
-BINARY_ALIAS=	python3=${PYTHON_CMD}
+BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=${COMPILER}
 
 DESCR?=		${.CURDIR}/pkg-descr
 
