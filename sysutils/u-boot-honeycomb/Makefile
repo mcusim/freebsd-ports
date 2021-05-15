@@ -1,5 +1,4 @@
 # Created by: Dmitry Salychev <dsl@mcusim.org>
-# $FreeBSD$
 
 PORTNAME=	u-boot-honeycomb-lx2
 PORTVERSION=	20.12
