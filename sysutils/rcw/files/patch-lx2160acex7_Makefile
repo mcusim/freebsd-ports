@@ -1,4 +1,4 @@
---- lx2160acex7/Makefile.orig	2021-05-15 12:44:25 UTC
+--- lx2160acex7/Makefile.orig	2021-05-15 13:22:58 UTC
 +++ lx2160acex7/Makefile
 @@ -0,0 +1,2 @@
 +include ../Makefile.inc
