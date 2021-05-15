@@ -1,4 +1,4 @@
---- lx2160acex7/configs/lx2160a_cex7_hc_sd1_lanes_e_f.rcwi.orig	2021-05-15 12:46:06 UTC
+--- lx2160acex7/configs/lx2160a_cex7_hc_sd1_lanes_e_f.rcwi.orig	2021-05-15 13:28:39 UTC
 +++ lx2160acex7/configs/lx2160a_cex7_hc_sd1_lanes_e_f.rcwi
 @@ -0,0 +1,24 @@
 +/*

@@ -28,6 +28,7 @@ do-configure:
 	echo "#include <configs/lx2160a_SD1_8.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
 	echo "#include <configs/lx2160a_SD2_5.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
 	echo "#include <configs/lx2160a_SD3_2.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
+	find ${WRKSRC} -name "*.orig" -delete
 
 do-install:
 	${MKDIR} ${STAGEDIR}/${INST}

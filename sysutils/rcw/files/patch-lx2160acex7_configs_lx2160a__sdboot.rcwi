@@ -1,4 +1,4 @@
---- lx2160acex7/configs/lx2160a_sdboot.rcwi.orig	2021-05-15 12:48:05 UTC
+--- lx2160acex7/configs/lx2160a_sdboot.rcwi.orig	2021-05-15 13:28:39 UTC
 +++ lx2160acex7/configs/lx2160a_sdboot.rcwi
 @@ -0,0 +1,14 @@
 +/* Errata to write on scratch reg for validation */

@@ -1,4 +1,4 @@
---- lx2160acex7/configs/lx2160a_1900_600_2600.rcwi.orig	2021-05-15 12:44:40 UTC
+--- lx2160acex7/configs/lx2160a_1900_600_2600.rcwi.orig	2021-05-15 13:28:39 UTC
 +++ lx2160acex7/configs/lx2160a_1900_600_2600.rcwi
 @@ -0,0 +1,9 @@
 +CGA_PLL1_RAT=19

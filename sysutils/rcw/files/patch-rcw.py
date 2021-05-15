@@ -1,4 +1,4 @@
---- rcw.py.orig	2021-05-15 12:40:48 UTC
+--- rcw.py.orig	2021-05-15 13:18:14 UTC
 +++ rcw.py
 @@ -328,6 +328,34 @@ def build_pbi(lines):
              v2 = struct.pack(endianess + 'L', p2)
