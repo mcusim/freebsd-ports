@@ -12,21 +12,14 @@ COMMENT=	Reset Configuration Word - hardware boot-time parameters for the QorIQ 
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS+=	${COMPILER}:devel/${COMPILER}
+BUILD_DEPENDS+=	${COMPILER}:lang/${COMPILER}
 
 USES=		gmake python:3.7+,build shebangfix
-BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=${COMPILER}
+BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 DESCR?=		${.CURDIR}/pkg-descr
 
-MAKE_ARGS+=	V=1 CROSS_COMPILE=${CROSS_COMPILE} PYTHON=${PYTHON_CMD} ${ARCHFLAGS}
-
-NO_ARCH=	yes
-
-CROSS_COMPILE=	aarch64-none-elf-
-ARCHFLAGS=	ARCH=arm
-
-COMPILER?=${CROSS_COMPILE}gcc
+COMPILER?=gcc
 
 do-configure:
 	${MKDIR} ${WRKSRC}/lx2160acex7/RCW
