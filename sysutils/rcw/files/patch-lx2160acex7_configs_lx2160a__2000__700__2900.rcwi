@@ -1,0 +1,12 @@
+--- lx2160acex7/configs/lx2160a_2000_700_2900.rcwi.orig	2021-05-15 12:45:10 UTC
++++ lx2160acex7/configs/lx2160a_2000_700_2900.rcwi
+@@ -0,0 +1,9 @@
++CGA_PLL1_RAT=20
++CGA_PLL2_RAT=20
++CGB_PLL1_RAT=20
++CGB_PLL2_RAT=9
++
++SYS_PLL_RAT=14
++
++MEM_PLL_RAT=29
++MEM2_PLL_RAT=29
