@@ -12,7 +12,8 @@ COMMENT=	Reset Configuration Word - hardware boot-time parameters for the QorIQ 
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS+=	${COMPILER}:lang/${COMPILER}
+BUILD_DEPENDS+=	${COMPILER}:lang/${COMPILER} \
+		git:devel/git
 
 USES=		gmake python:3.7+,build shebangfix
 BINARY_ALIAS=	python3=${PYTHON_CMD}
