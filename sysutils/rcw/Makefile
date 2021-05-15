@@ -12,13 +12,14 @@ COMMENT=	Reset Configuration Word - hardware boot-time parameters for the QorIQ 
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS+=	${COMPILER}:lang/${COMPILER} \
-		git:devel/git
+BUILD_DEPENDS+=	${COMPILER}:lang/${COMPILER}
 
 USES=		gmake python:3.7+,build shebangfix
 BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 DESCR?=		${.CURDIR}/pkg-descr
+
+MAKE_ARGS+=	RCW_VERSION=${PORTVERSION}
 
 COMPILER?=gcc
 
@@ -29,6 +30,8 @@ do-configure:
 	echo "#include <configs/lx2160a_SD1_8.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
 	echo "#include <configs/lx2160a_SD2_5.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
 	echo "#include <configs/lx2160a_SD3_2.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
+
+post-patch:
 	find ${WRKSRC} -name "*.orig" -delete
 
 do-install:
