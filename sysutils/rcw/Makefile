@@ -12,7 +12,8 @@ COMMENT=	Hardware boot-time parameters for the QorIQ targets
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS+=	gcc:lang/gcc
+BUILD_DEPENDS+=	gcc:lang/gcc \
+		as:devel/binutils
 
 USES=		gmake python:3.7+,build shebangfix
 BINARY_ALIAS=	python3=${PYTHON_CMD}
@@ -21,6 +22,9 @@ DESCR?=		${.CURDIR}/pkg-descr
 
 MAKE_ARGS+=	RCW_VERSION=${PORTVERSION}
 
+post-patch:
+	${FIND} ${WRKSRC} -name "*.orig" -delete
+
 do-configure:
 	${MKDIR} ${WRKSRC}/lx2160acex7/RCW
 	echo "#include <configs/lx2160a_defaults.rcwi>" > ${WRKSRC}/lx2160acex7/RCW/template.rcw
@@ -28,9 +32,6 @@ do-configure:
 	echo "#include <configs/lx2160a_SD1_8.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
 	echo "#include <configs/lx2160a_SD2_5.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
 	echo "#include <configs/lx2160a_SD3_2.rcwi>" >> ${WRKSRC}/lx2160acex7/RCW/template.rcw
-
-post-patch:
-	${FIND} ${WRKSRC} -name "*.orig" -delete
 
 do-install:
 	${MKDIR} ${STAGEDIR}/${INST}
