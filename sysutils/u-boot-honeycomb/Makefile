@@ -17,14 +17,14 @@ COMMENT=	Cross-build das u-boot for model HoneyComb LX2
 
 LICENSE=	GPLv2
 
-BUILD_DEPENDS+=	libgmp.so:math/gmp
-		makeinfo:print/texinfo \
+BUILD_DEPENDS+=	makeinfo:print/texinfo \
 		gsed:textproc/gsed \
 		swig:devel/swig \
 		dtc>=1.4.1:sysutils/dtc \
 		mkimage:sysutils/u-boot-tools \
 		${PYTHON_PKGNAMEPREFIX}setuptools-pkg>=0:devel/py-setuptools-pkg@${PY_FLAVOR}
 BUILD_DEPENDS+=	${COMPILER}:devel/${COMPILER}
+LIB_DEPENDS+=	libgmp.so:math/gmp
 
 USES=		bison gmake python:3.7+,build shebangfix
 BINARY_ALIAS=	bison=${LOCALBASE}/bin/bison dtc=${LOCALBASE}/bin/dtc sed=gsed python3=${PYTHON_CMD}
