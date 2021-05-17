@@ -6,4 +6,3 @@ configuration information from a memory device during reset. Such information
 is called reset configuration word (RCW) data.
 
 WWW: https://source.codeaurora.org/external/qoriq/qoriq-components/rcw
-WWW: https://www.solid-run.com/arm-servers-networking-platforms/honeycomb-workstation
