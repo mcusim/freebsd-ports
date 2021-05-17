@@ -1,14 +1,9 @@
-# Created by: Dmitry Salychev <dsl@mcusim.org>
-# $FreeBSD$
-
 PORTNAME=	rcw
 PORTVERSION=	20.12 # Layerscape SDK version
 CATEGORIES=	sysutils
-PKGNAMESUFFIX?=	-${BOARD}
 MASTER_SITES=	https://source.codeaurora.org/external/qoriq/qoriq-components/rcw/snapshot/
+PKGNAMESUFFIX?=	-${BOARD}
 DISTNAME=	bd6675518e6cb22f731c53407cc0631aa240f49f
-
-BOARD=		lx2160acex7
 
 MAINTAINER=	dsl@mcusim.org
 COMMENT=	Hardware boot-time parameters for the SolidRun HoneyComb LX2
@@ -18,7 +13,7 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS+=	as:devel/binutils
 
 USES=		gmake python:3.7+,build shebangfix
-USE_GCC=	yes:build
+USE_GCC=	yes:build+
 BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=gcc${GCC_DEFAULT}
 
 DESCR?=		${.CURDIR}/pkg-descr
@@ -26,6 +21,8 @@ DESCR?=		${.CURDIR}/pkg-descr
 NO_ARCH=	yes
 
 MAKE_ARGS+=	RCW_VERSION=${PORTVERSION}
+
+BOARD=		lx2160acex7
 
 post-patch:
 	${FIND} ${WRKSRC} -name "*.orig" -delete
