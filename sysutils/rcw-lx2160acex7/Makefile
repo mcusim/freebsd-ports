@@ -18,8 +18,8 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS+=	as:devel/binutils
 
 USES=		gmake python:3.7+,build shebangfix
-USE_GCC=	any
-BINARY_ALIAS=	python3=${PYTHON_CMD}
+USE_GCC=	yes:build
+BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=gcc${GCC_DEFAULT}
 
 DESCR?=		${.CURDIR}/pkg-descr
 
