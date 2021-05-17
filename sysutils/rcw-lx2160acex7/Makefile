@@ -23,6 +23,8 @@ BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 DESCR?=		${.CURDIR}/pkg-descr
 
+NO_ARCH=	yes
+
 MAKE_ARGS+=	RCW_VERSION=${PORTVERSION}
 
 post-patch:
@@ -37,6 +39,8 @@ do-configure:
 	echo "#include <configs/lx2160a_SD3_2.rcwi>" >> ${WRKSRC}/${MODEL}/RCW/${MODEL}.rcw
 
 do-install:
-	${MKDIR} ${STAGEDIR}/${INST}
+	${MKDIR} ${STAGEDIR}/${PREFIX}/share/${PORTNAME}-${BOARD}/
+	${INSTALL_DATA} ${WRKSRC}/${MODEL}/RCW/${MODEL}.rcw ${STAGEDIR}/${PREFIX}/share/${PORTNAME}-${BOARD}/
+	${INSTALL_DATA} ${DESCR} ${STAGEDIR}/${INST}/README
 
 .include <bsd.port.mk>
