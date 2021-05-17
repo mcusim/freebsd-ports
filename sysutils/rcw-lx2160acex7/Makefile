@@ -1,3 +1,5 @@
+# Created by: Dmitry Salychev <dsl@mcusim.org>
+
 PORTNAME=	rcw
 PORTVERSION=	20.12 # Layerscape SDK version
 CATEGORIES=	sysutils
