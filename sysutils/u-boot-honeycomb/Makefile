@@ -1,11 +1,11 @@
 # Created by: Dmitry Salychev <dsl@mcusim.org>
 
 PORTNAME=	u-boot
-PORTVERSION=	20.12
+PORTVERSION=	${LSDK_VERSION}
 CATEGORIES=	sysutils
-MASTER_SITES=	https://source.codeaurora.org/external/qoriq/qoriq-components/u-boot/snapshot/
+MASTER_SITES=	${LSDK_SITES}
 PKGNAMESUFFIX?=	-${MODEL}
-DISTNAME=	f46a944f715f284aff1d42c009680ffe0be4058f
+DISTNAME=	${LSDK_COMMIT}
 
 MAINTAINER=	dsl@mcusim.org
 COMMENT=	Cross-build das u-boot for model HoneyComb LX2
@@ -40,10 +40,20 @@ COMPILER?=	${CROSS_COMPILE}gcc
 MODEL=		honeycomb
 BOARD_CONFIG=	lx2160acex7_tfa_defconfig
 
+# NXP's Layerscape SDK version
+LSDK_VERSION?=	20.12
+LSDK_COMMIT?=	f46a944f715f284aff1d42c009680ffe0be4058f
+LSDK_SITES?=	https://source.codeaurora.org/external/qoriq/qoriq-components/u-boot/snapshot/
+
+post-patch:
+	${FIND} ${WRKSRC} -name "*.orig" -delete
+
 do-configure:
 	(cd ${WRKSRC}; ${SETENV} ${CONFIGURE_ENV} ${MAKE_CMD} ${BOARD_CONFIG})
 
 do-install:
 	${MKDIR} ${STAGEDIR}/${INST}
+	${INSTALL_DATA} ${WRKSRC}/u-boot.bin ${STAGEDIR}/${INST}
+	${INSTALL_DATA} ${DESCR} ${STAGEDIR}/${INST}/README
 
 .include <bsd.port.mk>
