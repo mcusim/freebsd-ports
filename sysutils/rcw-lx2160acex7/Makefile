@@ -3,9 +3,9 @@
 PORTNAME=	rcw
 PORTVERSION=	${LSDK_VERSION}
 CATEGORIES=	sysutils
-MASTER_SITES=	https://source.codeaurora.org/external/qoriq/qoriq-components/rcw/snapshot/
+MASTER_SITES=	${LSDK_SITES}
 PKGNAMESUFFIX?=	-${BOARD}
-DISTNAME=	bd6675518e6cb22f731c53407cc0631aa240f49f
+DISTNAME=	${LSDK_COMMIT}
 
 MAINTAINER=	dsl@mcusim.org
 COMMENT=	Hardware boot-time parameters for the SolidRun HoneyComb LX2
@@ -34,7 +34,12 @@ BOARD=		lx2160acex7
 IGNORE+=	BOARD is not defined
 .endif
 
+# NXP's Layerscape SDK version
 LSDK_VERSION?=	20.12
+LSDK_COMMIT?=	bd6675518e6cb22f731c53407cc0631aa240f49f
+LSDK_SITES?=	https://source.codeaurora.org/external/qoriq/qoriq-components/rcw/snapshot/
+
+# Configuration variables
 DDR_SPEED?=	3200
 SERDES_1?=	8
 SERDES_2?=	5
