@@ -45,6 +45,10 @@ SERDES_1?=	8
 SERDES_2?=	5
 SERDES_3?=	2
 
+PLIST_FILES+=	${RCW_DIR}/${BOARD}.rcw \
+		${RCW_DIR}/${BOARD}.bin \
+		${RCW_DIR}/README
+
 post-patch:
 	${FIND} ${WRKSRC} -name "*.orig" -delete
 
