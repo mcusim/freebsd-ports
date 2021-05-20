@@ -15,12 +15,14 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS+=	${COMPILER}:devel/${COMPILER} \
 		git:devel/git \
 		bash:shells/bash \
+		gcc10:lang/gcc10 \
 		${PREFIX}/share/u-boot/u-boot-honeycomb/u-boot.bin:sysutils/u-boot-honeycomb \
 		${PREFIX}/share/rcw/rcw-lx2160acex7/lx2160acex7.bin:sysutils/rcw-lx2160acex7
 
 USES=		gmake shebangfix
-USE_GCC=	yes:build
-BINARY_ALIAS=	gcc=gcc${GCC_DEFAULT}
+#USE_GCC=	yes:build
+#BINARY_ALIAS=	gcc=gcc${GCC_DEFAULT}
+BINARY_ALIAS=	gcc=gcc10
 
 SHEBANG_GLOB=	*.sh *.mk
 SSP_UNSAFE=	yes
