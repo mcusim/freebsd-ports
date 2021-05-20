@@ -48,10 +48,9 @@ post-patch:
 	${FIND} ${WRKSRC} -name "*.orig" -delete
 
 do-configure:
-	cd ${WRKSRC}/tools/fiptool
-	git clone ${NXP_DDR_BINARY_SITE}
-	make
-	./fiptool create \
+	(cd ${WRKSRC}/tools/fiptool; git clone ${NXP_DDR_BINARY_SITE})
+	(cd ${WRKSRC}/tools/fiptool; ${SETENV} ${CONFIGURE_ENV} ${MAKE_CMD})
+	(cd ${WRKSRC}/tools/fiptool; ./fiptool create \
 		--ddr-immem-udimm-1d ddr-phy-binary/lx2160a/ddr4_pmu_train_imem.bin \
 		--ddr-immem-udimm-2d ddr-phy-binary/lx2160a/ddr4_2d_pmu_train_imem.bin \
 		--ddr-dmmem-udimm-1d ddr-phy-binary/lx2160a/ddr4_pmu_train_dmem.bin \
@@ -59,11 +58,10 @@ do-configure:
 		--ddr-immem-rdimm-1d ddr-phy-binary/lx2160a/ddr4_rdimm_pmu_train_imem.bin \
 		--ddr-immem-rdimm-2d ddr-phy-binary/lx2160a/ddr4_rdimm2d_pmu_train_imem.bin \
 		--ddr-dmmem-rdimm-1d ddr-phy-binary/lx2160a/ddr4_rdimm_pmu_train_dmem.bin \
-		--ddr-dmmem-rdimm-2d ddr-phy-binary/lx2160a/ddr4_rdimm2d_pmu_train_dmem.bin fip_ddr_all.bin
+		--ddr-dmmem-rdimm-2d ddr-phy-binary/lx2160a/ddr4_rdimm2d_pmu_train_dmem.bin \
+		fip_ddr_all.bin)
 
 do-install:
 	${MKDIR} ${STAGEDIR}/${INST}
-#${INSTALL_DATA} ${WRKSRC}/u-boot.bin ${STAGEDIR}/${INST}
-#${INSTALL_DATA} ${DESCR} ${STAGEDIR}/${INST}/README
 
 .include <bsd.port.mk>
