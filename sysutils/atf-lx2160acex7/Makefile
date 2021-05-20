@@ -15,7 +15,7 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS+=	${COMPILER}:devel/${COMPILER} \
 		git:devel/git \
 		bash:shells/bash \
-		gcc:lang/gcc \
+		gcc${GCC_DEFAULT}:lang/gcc${GCC_DEFAULT} \
 		${PREFIX}/share/u-boot/u-boot-honeycomb/u-boot.bin:sysutils/u-boot-honeycomb \
 		${PREFIX}/share/rcw/rcw-lx2160acex7/lx2160acex7.bin:sysutils/rcw-lx2160acex7
 
