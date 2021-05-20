@@ -18,6 +18,8 @@ BUILD_DEPENDS+=	${COMPILER}:devel/${COMPILER} \
 		${PREFIX}/share/rcw/rcw-lx2160acex7/lx2160acex7.bin:sysutils/rcw-lx2160acex7
 
 USES=		gmake
+USE_GCC=	yes:build
+BINARY_ALIAS=	gcc=gcc${GCC_DEFAULT}
 
 SSP_UNSAFE=	yes
 ATF_DIR=	share/atf/${PORTNAME}${PKGNAMESUFFIX}
