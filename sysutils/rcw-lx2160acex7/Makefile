@@ -40,7 +40,7 @@ LSDK_COMMIT?=	bd6675518e6cb22f731c53407cc0631aa240f49f
 LSDK_SITES?=	https://source.codeaurora.org/external/qoriq/qoriq-components/rcw/snapshot/
 
 # Configuration variables
-DDR_SPEED?=	3200
+DDR_SPEED?=	3200 # 1600 MHz clock
 SERDES_1?=	8
 SERDES_2?=	5
 SERDES_3?=	2

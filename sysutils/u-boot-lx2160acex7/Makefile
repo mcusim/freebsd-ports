@@ -37,7 +37,7 @@ CROSS_COMPILE=	aarch64-none-elf-
 ARCHFLAGS=	ARCH=arm
 COMPILER?=	${CROSS_COMPILE}gcc
 
-MODEL=		honeycomb
+MODEL=		lx2160acex7
 BOARD_CONFIG=	lx2160acex7_tfa_defconfig
 
 # NXP's Layerscape SDK version

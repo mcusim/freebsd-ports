@@ -16,7 +16,7 @@ BUILD_DEPENDS+=	${COMPILER}:devel/${COMPILER} \
 		git:devel/git \
 		bash:shells/bash \
 		gcc${GCC_DEFAULT}:lang/gcc${GCC_DEFAULT} \
-		${PREFIX}/share/u-boot/u-boot-honeycomb/u-boot.bin:sysutils/u-boot-honeycomb \
+		${PREFIX}/share/u-boot/u-boot-lx2160acex7/u-boot.bin:sysutils/u-boot-lx2160acex7 \
 		${PREFIX}/share/rcw/rcw-lx2160acex7/lx2160acex7.bin:sysutils/rcw-lx2160acex7
 
 USES=		gmake shebangfix
@@ -28,7 +28,7 @@ ATF_DIR=	share/atf/${PORTNAME}${PKGNAMESUFFIX}
 INST=		${PREFIX}/${ATF_DIR}
 DESCR?=		${.CURDIR}/pkg-descr
 
-MAKE_ENV+=	BL33=${PREFIX}/share/u-boot/u-boot-honeycomb/u-boot.bin
+MAKE_ENV+=	BL33=${PREFIX}/share/u-boot/u-boot-lx2160acex7/u-boot.bin
 MAKE_ARGS+=	V=1 CROSS_COMPILE=${CROSS_COMPILE} ${ARCHFLAGS} \
 		PLAT=${PLAT} all fip pbl \
 		RCW=${PREFIX}/share/rcw/rcw-lx2160acex7/lx2160acex7.bin \
