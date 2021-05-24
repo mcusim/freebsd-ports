@@ -1,0 +1,65 @@
+--- lx2160asi/bootlocptr.rcw.orig	2021-05-24 19:40:45 UTC
++++ lx2160asi/bootlocptr.rcw
+@@ -0,0 +1,62 @@
++/*
++ * Generic code for auto booting.
++ * For each section blockcopy followed by write to bootlocl then bootloch must
++ * be followed in each section since when using ATF with create_pbl script in
++ * auto mode; it counts on the sequence of to be in that order.
++ */
++
++/* Boot from SD - copy SPL Uboot to Ocram */
++.pbi
++/* Load condition PORSR1 and mask RCW_SRC */
++loadc 0x01e00000,0x07800000
++
++/* If it is 0x8 << 23 then skip the following jump command */
++jumpc 0x00000014,0x04000000
++
++/* Jump all the below instructions */
++jump 0x28 /* All instruction below including the jump are 40 bytes */
++
++/* blockcopy must be followed by two writes to bootlocl and bootloch */
++blockcopy 0x08,0x00100000,0x1800a000,0x00020000
++write 0x01e00400,0x1800a000
++write 0x01e00404,0x00000000
++.end
++
++/* Boot from eMMC - copy SPL Uboot to Ocram */
++.pbi
++/* Load condition PORSR1 and mask RCW_SRC */
++loadc 0x01e00000,0x07800000
++
++/* If it is 0x9 << 23 then skip the following jump command */
++jumpc 0x00000014,0x04800000
++
++/* Jump all the below instructions */
++jump 0x28 /* All instruction below including the jump are 40 bytes */
++
++/* blockcopy must be followed by two writes to bootlocl and bootloch */
++blockcopy 0x09,0x00100000,0x1800a000,0x00020000
++write 0x01e00400,0x1800a000
++write 0x01e00404,0x00000000
++.end
++
++/* XSPI boot Location Pointer */
++/*
++ * Set the boot location pointer to the NOR flash boot area.
++ */
++
++.pbi
++/* Load condition PORSR1 and mask RCW_SRC */
++loadc 0x01e00000,0x07800000
++
++/* If it is 0xf << 23 then skip the following jump command */
++jumpc 0x00000014,0x07800000
++
++/* Jump all the below instructions */
++jump 0x28 /* All instruction below including the jump are 0x190 bytes */
++
++/* blockcopy must be followed by two writes to bootlocl and bootloch */
++blockcopy 0x0f,0x00100000,0x1800a000,0x00020000
++write 0x01e00400,0x20100000
++write 0x01e00404,0x00000000
++.end
++

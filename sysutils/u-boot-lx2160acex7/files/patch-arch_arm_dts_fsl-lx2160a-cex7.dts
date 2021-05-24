@@ -1,0 +1,141 @@
+--- arch/arm/dts/fsl-lx2160a-cex7.dts.orig	2021-05-12 16:47:11 UTC
++++ arch/arm/dts/fsl-lx2160a-cex7.dts
+@@ -0,0 +1,138 @@
++// SPDX-License-Identifier: GPL-2.0+ OR X11
++/*
++ * SolidRun LX2160ACEX7 device tree source
++ *
++ * Author:	Rabeeh Khoury <rabeeh@solid-run.com>
++ *
++ * Copyright 2019 SolidRun ltd.
++ *
++ */
++
++/dts-v1/;
++
++#include "fsl-lx2160a.dtsi"
++
++/ {
++	model = "SolidRun LX2160ACEX7 COM express type 7 based board";
++	compatible = "fsl,lx2160acex7", "fsl,lx2160a";
++
++	aliases {
++		spi0 = &fspi;
++	};
++};
++
++&fspi {
++	bus-num = <0>;
++	status = "okay";
++
++	qflash0: MT35XU512ABA1G12@0 {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "spi-flash";
++		spi-max-frequency = <50000000>;
++		reg = <0>;
++		/* The following setting enables 1-1-8 (CMD-ADDR-DATA) mode */
++		fspi-rx-bus-width = <8>; /* 8 FSPI Rx lines */
++		fspi-tx-bus-width = <1>; /* 1 FSPI Tx line */
++	};
++
++};
++
++&esdhc0 {
++	status = "okay";
++};
++
++&esdhc1 {
++	status = "okay";
++};
++
++&i2c0 {
++	status = "okay";
++	u-boot,dm-pre-reloc;
++	i2c-mux@77 {
++		compatible = "nxp,pca9547";
++		reg = <0x77>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0x0>;
++/* The following eeprin is reserved so that the 2Kb eeprom at address 0x57
++   would be used as TLV eeprom.
++			24aa512@50 {
++				compatible = "atmel,24c512";
++				reg = <0x50>;
++			};
++*/
++			spd1@51 {
++				compatible = "atmel,spd";
++				reg = <0x51>;
++			};
++			spd2@53 {
++				compatible = "atmel,spd";
++				reg = <0x53>;
++			};
++			m24c02@57 {
++				compatible = "atmel,24c02";
++				reg = <0x57>;
++			};
++		};
++		i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0x1>;
++			fan-temperature-ctrlr@18 {
++				compatible = "ti,amc6821";
++				reg = <0x18>;
++				cooling-min-state = <0>;
++				cooling-max-state = <9>;
++				#cooling-cells = <2>;
++			};
++		};
++		i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0x2>;
++			ltc3882@5c {
++				compatible = "ltc3882";
++				reg = <0x5c>;
++			};
++		};
++		i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0x3>;
++
++			temperature-sensor@48 {
++				compatible = "nxp,sa56004";
++				reg = <0x48>;
++			};
++		};
++	};
++};
++
++&i2c4 {
++	status = "okay";
++
++	rtc@51 {
++		compatible = "pcf2127-rtc";
++		reg = <0x51>;
++	};
++};
++
++&sata0 {
++	status = "okay";
++};
++
++&sata1 {
++	status = "okay";
++};
++
++&sata2 {
++	status = "okay";
++};
++
++&sata3 {
++	status = "okay";
++};

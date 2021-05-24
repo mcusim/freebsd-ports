@@ -1,0 +1,11 @@
+--- lx2160acex7/configs/lx2160a_xspiboot.rcwi.orig	2021-05-24 19:34:24 UTC
++++ lx2160acex7/configs/lx2160a_xspiboot.rcwi
+@@ -0,0 +1,8 @@
++/* Errata to write on scratch reg for validation */
++#include <../lx2160asi/scratchrw1.rcw>
++
++/* Boot Location Pointer */
++#include <../lx2160asi/bootlocptr_nor.rcw>
++
++/* common PBI commands */
++#include <../lx2160asi/common.rcw>

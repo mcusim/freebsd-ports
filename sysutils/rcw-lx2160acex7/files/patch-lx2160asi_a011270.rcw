@@ -1,0 +1,15 @@
+--- lx2160asi/a011270.rcw.orig	2021-05-24 19:24:26 UTC
++++ lx2160asi/a011270.rcw
+@@ -4,6 +4,12 @@
+  */
+ 
+ .pbi
++/* Load condition SVR register mask major ID */
++loadc 0x01e000a4,0x000000f0
++/* If it is rev 1, skip the following jump command */
++jumpc 0x00000014,0x00000010
++/* Skip the following instructions by jumping to the end */
++jump  0x38
+ write 0x03400688,0x00000001
+ write 0x03500688,0x00000001
+ write 0x03600688,0x00000001

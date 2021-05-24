@@ -1,0 +1,17 @@
+--- lx2160acex7/configs/lx2160a_sdboot.rcwi.orig	2021-05-24 19:34:24 UTC
++++ lx2160acex7/configs/lx2160a_sdboot.rcwi
+@@ -0,0 +1,14 @@
++/* Errata to write on scratch reg for validation */
++#include <../lx2160asi/scratchrw1.rcw>
++
++/* Copy SPL Uboot to Ocram */
++.pbi
++blockcopy 0x08,0x00100000,0x1800a000,0x00020000
++.end
++
++/* Boot Location Pointer */
++#include <../lx2160asi/bootlocptr_sd.rcw>
++
++/* common PBI commands */
++#include <../lx2160asi/common.rcw>
++

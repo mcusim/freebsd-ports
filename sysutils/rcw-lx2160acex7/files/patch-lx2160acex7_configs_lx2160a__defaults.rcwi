@@ -1,0 +1,58 @@
+--- lx2160acex7/configs/lx2160a_defaults.rcwi.orig	2021-05-24 19:34:24 UTC
++++ lx2160acex7/configs/lx2160a_defaults.rcwi
+@@ -0,0 +1,55 @@
++#include <../lx2160asi/lx2160a.rcwi>
++MEM_PLL_CFG=3
++MEM2_PLL_CFG=3
++HWA_CGA_M1_CLK_SEL=1
++HWA_CGB_M1_CLK_SEL=7
++BOOT_LOC=26
++SYSCLK_FREQ=600
++IIC2_PMUX=6
++IIC3_PMUX=0
++IIC4_PMUX=2
++USB3_CLK_FSEL=39
++SRDS_DIV_PEX_S1=1
++SRDS_DIV_PEX_S2=1
++SRDS_DIV_PEX_S3=1
++SDHC1_DIR_PMUX=1
++IRQ03_00_PMUX=1
++IRQ07_04_PMUX=1
++IRQ11_08_PMUX=1
++EVT20_PMUX=1
++EVT43_PMUX=1
++
++/* Drive the fan full speed pin */
++.pbi
++write 0x2320000,0x20000000
++.end
++
++/* Errata for SATA controller */
++#include <../lx2160asi/a010554.rcw>
++
++/* Errata for rev 1 PCIe controller */
++#include <../lx2160asi/a011270.rcw>
++
++/* Errata a050234 - fix elastic buffer threshold in rev 1 */
++#include <../lx2160asi/a050234.rcw>
++
++/* LX2 rev 2 PCIe Errata A-009531 and A-008851*/
++#include <../lx2160asi/a009531_a008851.rcw>
++
++/* Unified boot location copy */
++#include <../lx2160asi/bootlocptr.rcw>
++
++/* Errata to write on scratch reg for validation */
++#include <../lx2160asi/scratchrw1.rcw>
++
++/* common PBI commands */
++#include <../lx2160asi/common.rcw>
++
++/*
++ * Do not modify the FlexSPI clock divisor value when using HoneyComb / ClearFog CX
++ * as carrier boards. The reason is that the analog mux used on the carrier board
++ * can't accomodate more than 20MHz SPI frequency. So keep the value default 0x14
++ * which indicates divide by 80. In 700MHz fabric clock this is around 17MHz SPI
++ * clock.
++ */
++/*#include <../lx2160asi/flexspi_divisor_28.rcw>*/
