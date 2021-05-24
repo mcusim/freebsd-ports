@@ -1,4 +1,4 @@
---- lx2160acex7/configs/lx2160a_SD1_4.rcwi.orig	2021-05-15 13:28:39 UTC
+--- lx2160acex7/configs/lx2160a_SD1_4.rcwi.orig	2021-05-24 19:34:24 UTC
 +++ lx2160acex7/configs/lx2160a_SD1_4.rcwi
 @@ -0,0 +1,4 @@
 +SRDS_PRTCL_S1=4

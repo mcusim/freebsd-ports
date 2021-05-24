@@ -1,4 +1,4 @@
---- lx2160asi/bootlocptr.rcw.orig	2021-05-15 13:18:54 UTC
+--- lx2160asi/bootlocptr.rcw.orig	2021-05-24 19:40:45 UTC
 +++ lx2160asi/bootlocptr.rcw
 @@ -0,0 +1,62 @@
 +/*
