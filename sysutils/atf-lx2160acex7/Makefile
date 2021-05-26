@@ -48,10 +48,8 @@ LSDK_COMMIT?=	9225ad51f026975fa6b86db800f43c55db11fa4d
 LSDK_SITES?=	https://source.codeaurora.org/external/qoriq/qoriq-components/atf/snapshot/
 NXP_DDR_BINARY_SITE?=https://github.com/NXP/ddr-phy-binary.git
 
-PLIST_FILES+=	${ATF_DIR}/bl2 \
-		${ATF_DIR}/bl2.bin \
+PLIST_FILES+=	${ATF_DIR}/bl2.bin \
 		${ATF_DIR}/bl2_auto.pbl \
-		${ATF_DIR}/bl31 \
 		${ATF_DIR}/bl31.bin \
 		${ATF_DIR}/fip.bin \
 		${ATF_DIR}/fip_ddr_all.bin \
@@ -76,10 +74,8 @@ do-configure:
 
 do-install:
 	${MKDIR} ${STAGEDIR}/${INST}
-	${INSTALL_DATA} ${WRKSRC}/build/${PLAT}/release/bl2 ${STAGEDIR}/${INST}
 	${INSTALL_DATA} ${WRKSRC}/build/${PLAT}/release/bl2.bin ${STAGEDIR}/${INST}
 	${INSTALL_DATA} ${WRKSRC}/build/${PLAT}/release/bl2_auto.pbl ${STAGEDIR}/${INST}
-	${INSTALL_DATA} ${WRKSRC}/build/${PLAT}/release/bl31 ${STAGEDIR}/${INST}
 	${INSTALL_DATA} ${WRKSRC}/build/${PLAT}/release/bl31.bin ${STAGEDIR}/${INST}
 	${INSTALL_DATA} ${WRKSRC}/build/${PLAT}/release/fip.bin ${STAGEDIR}/${INST}
 	${INSTALL_DATA} ${WRKSRC}/tools/fiptool/fip_ddr_all.bin ${STAGEDIR}/${INST}
