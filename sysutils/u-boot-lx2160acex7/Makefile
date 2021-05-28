@@ -16,8 +16,9 @@ BUILD_DEPENDS+=	makeinfo:print/texinfo \
 		gsed:textproc/gsed \
 		swig:devel/swig \
 		dtc>=1.4.1:sysutils/dtc \
-		${PYTHON_PKGNAMEPREFIX}setuptools-pkg>=0:devel/py-setuptools-pkg@${PY_FLAVOR}
-BUILD_DEPENDS+=	${COMPILER}:devel/${COMPILER}
+		${PYTHON_PKGNAMEPREFIX}setuptools-pkg>=0:devel/py-setuptools-pkg@${PY_FLAVOR} \
+		${CROSS_COMPILE}as:devel/binutils@aarch64_none_elf \
+		${CROSS_COMPILE}gcc:devel/${CROSS_COMPILE}gcc
 LIB_DEPENDS+=	libgmp.so:math/gmp
 
 USES=		bison gmake python:3.7+,build shebangfix
@@ -35,7 +36,6 @@ NO_ARCH=	yes
 
 CROSS_COMPILE=	aarch64-none-elf-
 ARCHFLAGS=	ARCH=arm
-COMPILER?=	${CROSS_COMPILE}gcc
 
 MODEL=		lx2160acex7
 BOARD_CONFIG=	lx2160acex7_tfa_defconfig
