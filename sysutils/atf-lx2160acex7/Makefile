@@ -12,13 +12,12 @@ COMMENT=	ARM TF-A for platform ${PLAT}
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS+= ${CROSS_COMPILE}as:devel/binutils@aarch64_none_elf \
-		${CROSS_COMPILE}gcc:devel/${CROSS_COMPILE}gcc \
-		git:devel/git \
+BUILD_DEPENDS+= git:devel/git \
 		bash:shells/bash \
-		gcc${GCC_DEFAULT}:lang/gcc${GCC_DEFAULT} \ # Required for configuration step
 		${PREFIX}/share/u-boot/u-boot-lx2160acex7/u-boot.bin:sysutils/u-boot-lx2160acex7 \
-		${PREFIX}/share/rcw/rcw-lx2160acex7/lx2160acex7.bin:sysutils/rcw-lx2160acex7
+		${PREFIX}/share/rcw/rcw-lx2160acex7/lx2160acex7.bin:sysutils/rcw-lx2160acex7 \
+		gcc${GCC_DEFAULT}:lang/gcc${GCC_DEFAULT} \ # Required for configuration step
+		${CROSS_COMPILE}gcc:devel/${CROSS_COMPILE}gcc
 
 USES=		gmake shebangfix
 BINARY_ALIAS=	gcc=gcc${GCC_DEFAULT}
