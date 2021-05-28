@@ -16,7 +16,8 @@ BUILD_DEPENDS+= git:devel/git \
 		bash:shells/bash \
 		${PREFIX}/share/u-boot/u-boot-lx2160acex7/u-boot.bin:sysutils/u-boot-lx2160acex7 \
 		${PREFIX}/share/rcw/rcw-lx2160acex7/lx2160acex7.bin:sysutils/rcw-lx2160acex7 \
-		gcc${GCC_DEFAULT}:lang/gcc${GCC_DEFAULT} \ # Required for configuration step
+		gcc${GCC_DEFAULT}:lang/gcc${GCC_DEFAULT} \ # Required for configuration
+		${CROSS_COMPILE}as:devel/binutils@aarch64_none_elf \
 		${CROSS_COMPILE}gcc:devel/${CROSS_COMPILE}gcc
 
 USES=		gmake shebangfix
