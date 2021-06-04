@@ -12,7 +12,8 @@ COMMENT=	Management Complex utilities for platform ${PLAT}
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS+= git:devel/git
+BUILD_DEPENDS+= git:devel/git \
+		dtc:sysutils/dtc
 
 USES=		gmake
 
@@ -21,6 +22,7 @@ MCUTILS_DIR=	share/mc-utils/${PORTNAME}${PKGNAMESUFFIX}
 INST=		${PREFIX}/${MCUTILS_DIR}
 DESCR?=		${.CURDIR}/pkg-descr
 
+MAKE_ENV+=	SOURCEDIR=${WRKSRC}
 MAKE_ARGS+=	-C config/
 
 PLAT=		lx2160acex7
@@ -35,7 +37,7 @@ post-patch:
 	${FIND} ${WRKSRC} -name "*.orig" -delete
 
 do-configure:
-	(cd ${WRKSRC}; git clone ${MC_BINARY_SITE})
+	(cd ${WRKSRC}; git clone --depth=1 ${MC_BINARY_SITE})
 
 do-install:
 	${MKDIR} ${STAGEDIR}/${INST}
