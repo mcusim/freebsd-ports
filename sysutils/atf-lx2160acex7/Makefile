@@ -59,7 +59,7 @@ post-patch:
 	${FIND} ${WRKSRC} -name "*.orig" -delete
 
 do-configure:
-	(cd ${WRKSRC}/tools/fiptool; git clone ${NXP_DDR_BINARY_SITE})
+	(cd ${WRKSRC}/tools/fiptool; git clone --depth=1 ${NXP_DDR_BINARY_SITE})
 	(cd ${WRKSRC}/tools/fiptool; ${SETENV} ${CONFIGURE_ENV} ${MAKE_CMD})
 	(cd ${WRKSRC}/tools/fiptool; ./fiptool create \
 		--ddr-immem-udimm-1d ddr-phy-binary/lx2160a/ddr4_pmu_train_imem.bin \
