@@ -17,7 +17,7 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS+=	as:devel/binutils \
 		isc-envsubst:devel/envsubst
 
-USES=		gmake python:3.7+,build shebangfix tcl,build
+USES=		gmake python:3.7+,build shebangfix tcl
 USE_GCC=	yes:build
 BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=gcc${GCC_DEFAULT} \
 		tclsh=tclsh${TCLTK_DEFAULT}
