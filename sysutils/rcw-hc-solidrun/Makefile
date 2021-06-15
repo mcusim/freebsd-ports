@@ -6,6 +6,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	SolidRun
 GH_PROJECT=	rcw
 GH_TAGNAME=	${RCW_COMMIT}
+CATEGORIES=	sysutils
 PKGNAMESUFFIX?=	-hc-solidrun
 
 MAINTAINER=	dsl@mcusim.org
