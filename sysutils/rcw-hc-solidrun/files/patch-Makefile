@@ -1,0 +1,20 @@
+--- Makefile.orig	2021-06-15 18:21:36 UTC
++++ Makefile
+@@ -14,7 +14,7 @@ BOARDS = b4420qds b4860qds \
+ 
+ TCLSH := $(shell command -v tclsh 2> /dev/null)
+ 
+-VER = $(shell git describe --tags)
++VER = $(RCW_VERSION)
+ 
+ all install clean:
+ ifndef TCLSH
+@@ -26,8 +26,3 @@ endif
+ 	done
+ 
+ release: $(foreach board,$(BOARDS),rcw-$(board)-$(VER).tar.gz)
+-
+-$(foreach board,$(BOARDS),rcw-$(board)-$(VER).tar.gz): rcw-%-$(VER).tar.gz:
+-	git archive --format=tar HEAD --prefix rcw- $* | gzip -9 > $@
+-
+-.PHONY: all install clean release $(foreach board,$(BOARDS),rcw-$(board)-$(VER).tar.gz)

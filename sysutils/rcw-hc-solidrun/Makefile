@@ -17,9 +17,8 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS+=	as:devel/binutils \
 		isc-envsubst:devel/envsubst
 
-USES=		gmake python:3.7+,build shebangfix
+USES=		gmake python:3.7+,build shebangfix tcl,build
 USE_GCC=	yes:build
-USES=		tcl:build
 BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=gcc${GCC_DEFAULT} \
 		tclsh=tclsh${TCLTK_DEFAULT}
 
@@ -46,6 +45,9 @@ SERDES_3?=	2
 PLIST_FILES+=	${RCW_DIR}/${BOARD}.rcw \
 		${RCW_DIR}/${BOARD}.bin \
 		${RCW_DIR}/README
+
+post-patch:
+	${FIND} ${WRKSRC} -name "*.orig" -delete
 
 do-configure:
 	${MKDIR} ${WRKSRC}/${BOARD}/RCW
