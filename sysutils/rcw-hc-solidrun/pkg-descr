@@ -1,0 +1,8 @@
+Reset Configuration Word - hardware boot-time parameters for the SolidRun
+HoneyComb LX2 board.
+
+QorIQ chips use an external memory interface to import a subset of the reset
+configuration information from a memory device during reset. Such information
+is called reset configuration word (RCW) data.
+
+WWW: https://source.codeaurora.org/external/qoriq/qoriq-components/rcw

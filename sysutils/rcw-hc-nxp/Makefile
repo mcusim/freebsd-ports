@@ -1,11 +1,11 @@
 # Created by: Dmitry Salychev <dsl@mcusim.org>
 
 PORTNAME=	rcw
-PORTVERSION=	${LSDK_VERSION}
+PORTVERSION=	${RCW_VERSION}
 CATEGORIES=	sysutils
-MASTER_SITES=	${LSDK_SITES}
-PKGNAMESUFFIX?=	-${BOARD}
-DISTNAME=	${LSDK_COMMIT}
+MASTER_SITES=	${RCW_SITES}
+PKGNAMESUFFIX?=	-hc-nxp
+DISTNAME=	${RCW_COMMIT}
 
 MAINTAINER=	dsl@mcusim.org
 COMMENT=	Hardware boot-time parameters for the SolidRun HoneyComb LX2
@@ -22,22 +22,16 @@ RCW_DIR=	share/rcw/${PORTNAME}${PKGNAMESUFFIX}
 INST=		${PREFIX}/${RCW_DIR}
 DESCR?=		${.CURDIR}/pkg-descr
 
-MAKE_ARGS+=	RCW_VERSION=${LSDK_VERSION}
+MAKE_ARGS+=	RCW_VERSION=${RCW_VERSION}
 
 NO_ARCH=	yes
 
-# Specific board. Might be converted into a metaport in future.
 BOARD=		lx2160acex7
 
-# Sanity checks
-.if !defined(BOARD)
-IGNORE+=	BOARD is not defined
-.endif
-
-# NXP's Layerscape SDK version
-LSDK_VERSION?=	20.12
-LSDK_COMMIT?=	bd6675518e6cb22f731c53407cc0631aa240f49f
-LSDK_SITES?=	https://source.codeaurora.org/external/qoriq/qoriq-components/rcw/snapshot/
+# RCW repository from NXP's Layerscape SDK
+RCW_VERSION?=	20.12
+RCW_COMMIT?=	bd6675518e6cb22f731c53407cc0631aa240f49f
+RCW_SITES?=	https://source.codeaurora.org/external/qoriq/qoriq-components/rcw/snapshot/
 
 # Configuration variables
 DDR_SPEED?=	3200 # 1600 MHz clock
