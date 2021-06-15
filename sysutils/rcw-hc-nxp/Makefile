@@ -28,7 +28,7 @@ NO_ARCH=	yes
 
 BOARD=		lx2160acex7
 
-# RCW repository from NXP's Layerscape SDK
+# RCW repository (from Layerscape SDK)
 RCW_VERSION?=	20.12
 RCW_COMMIT?=	bd6675518e6cb22f731c53407cc0631aa240f49f
 RCW_SITES?=	https://source.codeaurora.org/external/qoriq/qoriq-components/rcw/snapshot/

@@ -19,7 +19,9 @@ BUILD_DEPENDS+=	as:devel/binutils \
 
 USES=		gmake python:3.7+,build shebangfix
 USE_GCC=	yes:build
-BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=gcc${GCC_DEFAULT}
+USES=		tcl:build
+BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=gcc${GCC_DEFAULT} \
+		tclsh=tclsh${TCLTK_DEFAULT}
 
 RCW_DIR=	share/rcw/${PORTNAME}${PKGNAMESUFFIX}
 INST=		${PREFIX}/${RCW_DIR}
@@ -31,7 +33,7 @@ NO_ARCH=	yes
 
 BOARD=		lx2160acex7
 
-# SolidRun's fork of RCW from NXP's Layerscape SDK
+# SolidRun's fork of RCW (from Layerscape SDK)
 RCW_VERSION?=	g20210313
 RCW_COMMIT?=	bf3f2f45
 
