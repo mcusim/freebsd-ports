@@ -2,10 +2,11 @@
 
 PORTNAME=	rcw
 DISTVERSION=	${RCW_VERSION}
-CATEGORIES=	sysutils
-PKGNAMESUFFIX?=	-hc-solidrun
 USE_GITHUB=	yes
+GH_ACCOUNT=	SolidRun
+GH_PROJECT=	rcw
 GH_TAGNAME=	${RCW_COMMIT}
+PKGNAMESUFFIX?=	-hc-solidrun
 
 MAINTAINER=	dsl@mcusim.org
 COMMENT=	Hardware boot-time parameters for the SolidRun HoneyComb LX2

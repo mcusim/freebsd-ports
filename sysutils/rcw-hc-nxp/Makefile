@@ -2,10 +2,9 @@
 
 PORTNAME=	rcw
 PORTVERSION=	${RCW_VERSION}
-CATEGORIES=	sysutils
 MASTER_SITES=	${RCW_SITES}
-PKGNAMESUFFIX?=	-hc-nxp
 DISTNAME=	${RCW_COMMIT}
+PKGNAMESUFFIX?=	-hc-nxp
 
 MAINTAINER=	dsl@mcusim.org
 COMMENT=	Hardware boot-time parameters for the SolidRun HoneyComb LX2
