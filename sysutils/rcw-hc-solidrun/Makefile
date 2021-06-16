@@ -9,9 +9,6 @@ COMMENT=	Hardware boot-time parameters for the SolidRun HoneyComb LX2
 
 LICENSE=	BSD3CLAUSE
 
-ONLY_FOR_ARCHS=		aarch64
-ONLY_FOR_ARCHS_REASON=	This port only provides firmware for aarch64 machine
-
 PKGNAMESUFFIX?=	-hc-solidrun
 
 BUILD_DEPENDS+=	as:devel/binutils isc-envsubst:devel/envsubst
