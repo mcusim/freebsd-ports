@@ -1,40 +1,41 @@
 # Created by: Dmitry Salychev <dsl@mcusim.org>
 
 PORTNAME=	rcw
-DISTVERSION=	${RCW_VERSION}
-USE_GITHUB=	yes
-GH_ACCOUNT=	SolidRun
-GH_PROJECT=	rcw
-GH_TAGNAME=	${RCW_COMMIT}
+DISTVERSION=	g20210313
 CATEGORIES=	sysutils
-PKGNAMESUFFIX?=	-hc-solidrun
 
 MAINTAINER=	dsl@mcusim.org
 COMMENT=	Hardware boot-time parameters for the SolidRun HoneyComb LX2
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS+=	as:devel/binutils \
-		isc-envsubst:devel/envsubst
+ONLY_FOR_ARCHS=		aarch64
+ONLY_FOR_ARCHS_REASON=	This port only provides firmware for aarch64 machine
 
-USES=		gmake python:3.7+,build shebangfix tcl
+PKGNAMESUFFIX?=	-hc-solidrun
+
+BUILD_DEPENDS+=	as:devel/binutils isc-envsubst:devel/envsubst
+
+USES=		gmake shebangfix python:3.7+,build tcl:4.5+,build
 USE_GCC=	yes:build
-BINARY_ALIAS=	python3=${PYTHON_CMD} gcc=gcc${GCC_DEFAULT} \
-		tclsh=tclsh${TCLTK_DEFAULT}
+BINARY_ALIAS=	gcc=${LOCALBASE}/bin/gcc${GCC_DEFAULT} \
+		tclsh=${LOCALBASE}/bin/tclsh${TCLTK_DEFAULT} \
+		python3=${PYTHON_CMD} python=${PYTHON_CMD}
 
 RCW_DIR=	share/rcw/${PORTNAME}${PKGNAMESUFFIX}
 INST=		${PREFIX}/${RCW_DIR}
 DESCR?=		${.CURDIR}/pkg-descr
 
-MAKE_ARGS+=	RCW_VERSION=${RCW_VERSION}
+MAKE_ARGS+=	RCW_VERSION=${DISTVERSION}
 
 NO_ARCH=	yes
 
 BOARD=		lx2160acex7
 
 # SolidRun's fork of RCW (from Layerscape SDK)
-RCW_VERSION?=	g20210313
-RCW_COMMIT?=	bf3f2f45
+USE_GITHUB=	yes
+GH_ACCOUNT=	SolidRun
+GH_TAGNAME=	bf3f2f45
 
 # Configuration variables
 DDR_SPEED?=	3200 # 1600 MHz clock
