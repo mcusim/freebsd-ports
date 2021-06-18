@@ -14,7 +14,7 @@ PKGNAMESUFFIX?=	-hc-nxp
 BUILD_DEPENDS+=	as:devel/binutils
 
 USES=		gmake shebangfix python:3.7+,build
-USE_GCC=	yes:build
+USE_GCC=	yes:build+
 BINARY_ALIAS=	gcc=${LOCALBASE}/bin/gcc${GCC_DEFAULT} \
 		python3=${PYTHON_CMD} python=${PYTHON_CMD}
 

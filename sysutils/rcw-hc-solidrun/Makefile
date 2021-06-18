@@ -14,7 +14,7 @@ PKGNAMESUFFIX?=	-hc-solidrun
 BUILD_DEPENDS+=	as:devel/binutils isc-envsubst:devel/envsubst
 
 USES=		gmake shebangfix python:3.7+,build tcl:4.5+,build
-USE_GCC=	yes:build
+USE_GCC=	yes:build+
 BINARY_ALIAS=	gcc=${LOCALBASE}/bin/gcc${GCC_DEFAULT} \
 		tclsh=${LOCALBASE}/bin/tclsh${TCLTK_DEFAULT} \
 		python3=${PYTHON_CMD} python=${PYTHON_CMD}
