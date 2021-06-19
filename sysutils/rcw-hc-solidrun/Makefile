@@ -5,16 +5,17 @@ DISTVERSION=	g20210313
 CATEGORIES=	sysutils
 
 MAINTAINER=	dsl@mcusim.org
-COMMENT=	Hardware boot-time parameters for the SolidRun HoneyComb LX2
+COMMENT=	Hardware boot-time parameters for SolidRun HoneyComb LX2
 
 LICENSE=	BSD3CLAUSE
 
 PKGNAMESUFFIX?=	-hc-solidrun
 
+USES=		gmake shebangfix python:3.7+,build tcl:4.5+,build
+USE_GCC=	yes:build
+
 BUILD_DEPENDS+=	as:devel/binutils isc-envsubst:devel/envsubst
 
-USES=		gmake shebangfix python:3.7+,build tcl:4.5+,build
-USE_GCC=	yes:build+
 BINARY_ALIAS=	gcc=${LOCALBASE}/bin/gcc${GCC_DEFAULT} \
 		tclsh=${LOCALBASE}/bin/tclsh${TCLTK_DEFAULT} \
 		python3=${PYTHON_CMD} python=${PYTHON_CMD}
