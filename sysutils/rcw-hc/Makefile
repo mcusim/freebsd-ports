@@ -42,7 +42,7 @@ PLIST_FILES+=	${RCW_DIR}/${BOARD}.rcw \
 		${RCW_DIR}/README
 
 .if ${FLAVOR} == solidrun
-RCW_VERSION=	20.12
+RCW_VERSION=	g20210313
 
 USES+=		tcl:4.5+,build
 BINARY_ALIAS+=	tclsh=${LOCALBASE}/bin/tclsh${TCLTK_DEFAULT}
@@ -61,7 +61,7 @@ do-install:
 .endif
 
 .if ${FLAVOR} == nxp
-RCW_VERSION=	g20210313
+RCW_VERSION=	20.12 # from Layerscape SDK
 
 MASTER_SITES=	https://source.codeaurora.org/external/qoriq/qoriq-components/rcw/snapshot/
 DISTNAME=	bd6675518e6cb22f731c53407cc0631aa240f49f
