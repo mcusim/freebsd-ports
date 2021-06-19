@@ -21,7 +21,7 @@ BUILD_DEPENDS+=	dtc>=1.4.1:sysutils/dtc \
 		bash:shells/bash
 
 # SolidRun uses their own forks of platforms and non-osi repositories. These
-# tags are used in their "lx2160a_uefi".
+# tags are used in their "lx2160a_uefi" repository.
 PLATFORM_TAG=	42aea3c3
 NONOSI_TAG=	93839d3e
 

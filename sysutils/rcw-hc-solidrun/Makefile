@@ -1,7 +1,7 @@
 # Created by: Dmitry Salychev <dsl@mcusim.org>
 
 PORTNAME=	rcw
-DISTVERSION=	g20210313
+PORTVERSION=	g20210313
 CATEGORIES=	sysutils
 
 MAINTAINER=	dsl@mcusim.org
