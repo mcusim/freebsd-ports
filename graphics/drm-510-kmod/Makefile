@@ -32,7 +32,7 @@ SUB_FILES=	pkg-message
 SUB_LIST=	OPSYS=${OPSYS} OSREL=${OSREL}
 
 .if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1401501
-IGNORE=		not supported on FreeBSD 14.2 and higher
+#IGNORE=		not supported on FreeBSD 14.2 and higher
 .endif
 
 .if ${OPSYS} != FreeBSD
